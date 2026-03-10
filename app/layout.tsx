@@ -76,7 +76,8 @@ export default function RootLayout({
               <h4>Company</h4>
               <a href="#">About</a>
               <a href="#">Contact</a>
-              <a href="#">Privacy Policy</a>
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms of Service</Link>
             </div>
           </div>
           <div className="footer-bottom">
