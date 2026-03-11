@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase"
 import Link from "next/link"
+import AIToolUI from "@/components/ai-tool-ui"
 
 // Map platforms to their relevant SaaS product
 function getCtaForPlatform(platform: string) {
@@ -130,15 +131,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                         }}>
                             {data.description}
                         </p>
-
-                        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                            <a href={cta.url} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 16, padding: "14px 32px" }}>
-                                {cta.label} →
-                            </a>
-                            <Link href="/tools" className="btn-secondary" style={{ fontSize: 16, padding: "14px 32px" }}>
-                                Browse All Tools
-                            </Link>
-                        </div>
+                        <AIToolUI toolName={data.name} />
                     </div>
                 </div>
             </section>
@@ -163,23 +156,26 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 </div>
             </section>
 
+            <section>
+                <div className="section" style={{ paddingTop: 60, paddingBottom: 60, maxWidth: 850 }}>
 
-            {/* CTA BANNER */}
-            <section style={{ position: "relative", overflow: "hidden" }}>
-                <div className="orb orb-purple" style={{ width: 300, height: 300, top: -100, left: -50 }} />
-                <div className="section" style={{ textAlign: "center", paddingTop: 60, paddingBottom: 60 }}>
-                    <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: -0.5, marginBottom: 12 }}>
-                        Ready to <span className="gradient-text">Get Started</span>?
+                    <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 16 }}>
+                        How to Use {data.name}
                     </h2>
-                    <p style={{ color: "var(--text-secondary)", fontSize: 16, maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
-                        Unlock the full power of AI for your business. Generate, track, and save — all in one platform.
+
+                    <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+                        {data.name} helps ecommerce sellers generate optimized content quickly.
+                        Simply enter your product name or keyword, and the AI will generate
+                        high-quality results tailored for platforms like {data.platform}.
                     </p>
-                    <a href={cta.url} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 24, fontSize: 16, padding: "14px 36px" }}>
-                        {cta.label} →
-                    </a>
+
+                    <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+                        This tool is designed to improve search visibility, increase click-through
+                        rates, and help your listings stand out in competitive marketplaces.
+                    </p>
+
                 </div>
             </section>
-
 
             {/* RELATED TOOLS */}
             {relatedTools && relatedTools.length > 0 && (
@@ -208,6 +204,22 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     </div>
                 </section>
             )}
+
+            {/* CTA BANNER */}
+            <section style={{ position: "relative", overflow: "hidden" }}>
+                <div className="orb orb-purple" style={{ width: 300, height: 300, top: -100, left: -50 }} />
+                <div className="section" style={{ textAlign: "center", paddingTop: 60, paddingBottom: 60 }}>
+                    <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: -0.5, marginBottom: 12 }}>
+                        Ready to <span className="gradient-text">Get Started</span>?
+                    </h2>
+                    <p style={{ color: "var(--text-secondary)", fontSize: 16, maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
+                        Unlock the full power of AI for your business. Generate, track, and save — all in one platform.
+                    </p>
+                    <a href={cta.url} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 24, fontSize: 16, padding: "14px 36px" }}>
+                        {cta.label} →
+                    </a>
+                </div>
+            </section>
         </main>
     )
 }
