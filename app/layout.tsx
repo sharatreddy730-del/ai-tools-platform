@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -26,6 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`} style={{ fontFamily: "var(--font-inter, 'Inter', sans-serif)" }}>
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779508005725169"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         {/* NAVBAR */}
         <nav className="navbar">
           <div className="navbar-inner">

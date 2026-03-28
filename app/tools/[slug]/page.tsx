@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase"
 import Link from "next/link"
 import AIToolUI from "@/components/ai-tool-ui"
+import AdUnit from "@/components/AdUnit"
 
 // Map platforms to their relevant SaaS product
 function getCtaForPlatform(platform: string) {
@@ -131,6 +132,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                         }}>
                             {data.description}
                         </p>
+                        <AdUnit />
                         <AIToolUI toolName={data.name} />
                     </div>
                 </div>
@@ -158,7 +160,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
             <section>
                 <div className="section" style={{ paddingTop: 60, paddingBottom: 60, maxWidth: 850 }}>
-
+                    <AdUnit />
                     <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 16 }}>
                         How to Use {data.name}
                     </h2>
@@ -176,7 +178,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
                 </div>
             </section>
-
+            <AdUnit />
             {/* RELATED TOOLS */}
             {relatedTools && relatedTools.length > 0 && (
                 <section style={{ background: "var(--bg-secondary)" }}>
@@ -204,7 +206,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     </div>
                 </section>
             )}
-
+            <AdUnit />
             {/* CTA BANNER */}
             <section style={{ position: "relative", overflow: "hidden" }}>
                 <div className="orb orb-purple" style={{ width: 300, height: 300, top: -100, left: -50 }} />
