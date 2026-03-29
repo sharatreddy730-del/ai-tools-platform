@@ -32,7 +32,7 @@ export default function AdUnit() {
             ref={adRef}
             className="adsbygoogle"
             style={{ display: "block", minHeight: 0, margin: "16px 0" }}
-            data-ad-client="ca-pub-XXXXXXXX"
+            data-ad-client="ca-pub-2779508005725169"
             data-ad-slot="1234567890"
             data-ad-format="auto"
             data-full-width-responsive="true"
