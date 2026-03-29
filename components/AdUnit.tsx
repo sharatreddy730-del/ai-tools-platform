@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 declare global {
     interface Window {
@@ -9,20 +9,29 @@ declare global {
 }
 
 export default function AdUnit() {
+    const adRef = useRef<HTMLModElement>(null)
+
     useEffect(() => {
-        try {
-            if (typeof window !== "undefined") {
-                (window.adsbygoogle = window.adsbygoogle || []).push({})
+        const el = adRef.current
+        // Guard against double-initialization (React 18 Strict Mode runs effects twice).
+        // AdSense sets data-adsbygoogle-status on the element after it is initialized,
+        // so we only push if that attribute is not yet present.
+        if (el && el.getAttribute("data-adsbygoogle-status") === null) {
+            try {
+                if (typeof window !== "undefined") {
+                    (window.adsbygoogle = window.adsbygoogle || []).push({})
+                }
+            } catch (e) {
+                console.error("AdSense error", e)
             }
-        } catch (e) {
-            console.error("AdSense error", e)
         }
     }, [])
 
     return (
         <ins
+            ref={adRef}
             className="adsbygoogle"
-            style={{ display: "block", margin: "24px 0" }}
+            style={{ display: "block", minHeight: 0, margin: "16px 0" }}
             data-ad-client="ca-pub-XXXXXXXX"
             data-ad-slot="1234567890"
             data-ad-format="auto"

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import AdUnit from "@/components/AdUnit"
 
 export default function Home() {
   return (
@@ -62,7 +63,70 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div style={{ margin: "40px 0" }}>
+        <AdUnit />
+      </div>
 
+      {/* ===== COMPARISON SECTION ===== */}
+      <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div className="section-header">
+          <span className="badge">⚔️ Compare Tools</span>
+          <h2>Compare Top AI Tools</h2>
+          <p>Find the best AI tool for your needs by comparing features, pricing, and use cases.</p>
+        </div>
+
+        <div style={{ display: "grid", gap: 16 }}>
+
+          <Link href="/tools/writeswift-vs-jasper" className="glass-card" style={{ padding: 20 }}>
+            <h3>WriteSwift vs Jasper AI</h3>
+            <p style={{ color: "var(--text-secondary)" }}>
+              Compare AI content generators for ecommerce and SEO.
+            </p>
+          </Link>
+
+          <Link href="/tools/writeswift-vs-copy-ai" className="glass-card" style={{ padding: 20 }}>
+            <h3>WriteSwift vs Copy.ai</h3>
+            <p style={{ color: "var(--text-secondary)" }}>
+              Which AI tool creates better product descriptions?
+            </p>
+          </Link>
+
+          <Link href="/tools/primepro-vs-habitica" className="glass-card" style={{ padding: 20 }}>
+            <h3>PrimePro vs Habitica</h3>
+            <p style={{ color: "var(--text-secondary)" }}>
+              Compare goal tracking apps with AI insights.
+            </p>
+          </Link>
+
+        </div>
+      </section>
+
+      <AdUnit />
+
+      {/* ===== SEO CONTENT BLOCK ===== */}
+      <section style={{ background: "var(--bg-secondary)" }}>
+        <div className="section" style={{ maxWidth: 850, margin: "0 auto" }}>
+
+          <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 16 }}>
+            How AI Tools Help Creators & Sellers
+          </h2>
+
+          <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+            AI tools are transforming how ecommerce sellers and creators work. From generating product listings to optimizing SEO content, these tools save hours of manual effort.
+          </p>
+
+          <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+            Tools like WriteSwift help sellers create high-converting product descriptions, while platforms like PrimePro improve productivity and goal tracking.
+          </p>
+
+          <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+            By leveraging AI, businesses can scale faster, improve search rankings, and increase conversions without increasing workload.
+          </p>
+
+        </div>
+      </section>
+
+      <AdUnit />
 
       {/* ===== PRODUCTS SECTION ===== */}
       <section id="products" style={{ position: "relative" }}>
@@ -142,7 +206,7 @@ export default function Home() {
         </div>
       </section>
 
-
+      <AdUnit />
       {/* ===== FEATURES SECTION ===== */}
       <section id="features" style={{ position: "relative", background: "var(--bg-secondary)" }}>
         <div className="section">

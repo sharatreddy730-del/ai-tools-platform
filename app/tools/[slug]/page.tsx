@@ -28,6 +28,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         .eq("slug", slug)
         .single()
 
+    if (slug.includes("-vs-")) {
+        const [a, b] = slug.split("-vs-")
+
+        return {
+            title: `${a} vs ${b} (2026) – Best AI Tool Comparison`,
+            description: `Compare ${a} vs ${b}. Features, pricing, pros & cons.`,
+        }
+    }
     return {
         title: data ? `${data.name} — Free AI Tool | AI Tools Platform` : "Free AI Tool",
         description: data?.description ?? "Discover powerful free AI tools for ecommerce sellers and creators.",
@@ -49,13 +57,24 @@ export async function generateStaticParams() {
 export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
 
+    const isVsPage = slug.includes("-vs-")
+
+    let toolA = ""
+    let toolB = ""
+
+    if (isVsPage) {
+        const parts = slug.split("-vs-")
+        toolA = parts[0]?.replace(/-/g, " ")
+        toolB = parts[1]?.replace(/-/g, " ")
+    }
+
     const { data } = await supabase
         .from("seo_pages")
         .select("*")
         .eq("slug", slug)
         .single()
 
-    if (!data) {
+    if (!data && !isVsPage) {
         return (
             <main>
                 <div className="section" style={{ textAlign: "center", minHeight: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
@@ -69,13 +88,115 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         )
     }
 
-    const cta = getCtaForPlatform(data.platform)
+    // ✅ VS PAGE RENDER — return early before accessing data.platform
+    // (data may be null for VS pages that aren't in the DB)
+
+    if (isVsPage) {
+        return (
+            <main>
+
+                {/* HERO */}
+                <section className="section" style={{ maxWidth: 900, margin: "0 auto", paddingTop: 60 }}>
+                    <h1 style={{ fontSize: 36, fontWeight: 800 }}>
+                        {toolA} vs {toolB}
+                    </h1>
+                    <p style={{ color: "var(--text-secondary)" }}>
+                        Compare {toolA} and {toolB} to find the best AI tool for your needs.
+                    </p>
+                </section>
+
+                <AdUnit />
+
+                {/* COMPARISON TABLE */}
+                <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
+                    <h2>Feature Comparison</h2>
+
+                    <table style={{ width: "100%", marginTop: 20 }}>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>{toolA}</th>
+                                <th>{toolB}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Best For</td>
+                                <td>Ecommerce</td>
+                                <td>General Use</td>
+                            </tr>
+                            <tr>
+                                <td>Ease of Use</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Pricing</td>
+                                <td>Affordable</td>
+                                <td>Premium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <AdUnit />
+
+                {/* PROS & CONS */}
+                <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
+                    <h2>Pros & Cons</h2>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                        <div>
+                            <h3>{toolA} Pros</h3>
+                            <ul>
+                                <li>Fast and efficient</li>
+                                <li>SEO optimized</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>{toolB} Pros</h3>
+                            <ul>
+                                <li>Flexible usage</li>
+                                <li>Wide feature set</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <AdUnit />
+
+                {/* VERDICT */}
+                <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
+                    <h2>Final Verdict</h2>
+
+                    <p>
+                        Choose <strong>{toolA}</strong> if you want focused results.
+                        Choose <strong>{toolB}</strong> if you need flexibility.
+                    </p>
+
+                    {/* CTA */}
+                    <a
+                        href="https://www.writeswift.ai"
+                        className="btn-primary"
+                        style={{ marginTop: 20, display: "inline-block" }}
+                    >
+                        Try {toolA} →
+                    </a>
+                </section>
+
+            </main>
+        )
+    }
+
+    // data is guaranteed non-null here: isVsPage is false and the 404 guard above handled !data
+    const cta = getCtaForPlatform(data!.platform)
 
     // Fetch related tools from same platform
     const { data: relatedTools } = await supabase
         .from("seo_pages")
         .select("id, name, slug, platform")
-        .eq("platform", data.platform)
+        .eq("platform", data!.platform)
         .neq("slug", slug)
         .limit(6)
 
