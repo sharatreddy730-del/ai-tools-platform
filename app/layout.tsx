@@ -19,7 +19,11 @@ export const metadata: Metadata = {
     "AI tools, AI content generator, ecommerce AI, Amazon listing generator, Shopify AI, eBay product description, goal tracker, subscription tracker",
   verification: {
     google: "yc7304Se6LzypM3i8j0hK3-A6-CL8lGQxTjxE12WxfQ"
-  }
+  },
+  // AdSense verification meta tag — tells Google's crawler which publisher owns this site
+  other: {
+    "google-adsense-account": "ca-pub-2779508005725169",
+  },
 };
 
 export default function RootLayout({
@@ -30,12 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`} style={{ fontFamily: "var(--font-inter, 'Inter', sans-serif)" }}>
-        {/* Google AdSense */}
+        {/* Google AdSense — beforeInteractive ensures it appears in server-rendered HTML for crawler visibility */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779508005725169"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
 
         {/* NAVBAR */}
