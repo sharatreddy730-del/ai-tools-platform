@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "Discover powerful AI tools for content creation, goal tracking, and subscription management. Built for ecommerce sellers, creators, and professionals.",
   keywords:
     "AI tools, AI content generator, ecommerce AI, Amazon listing generator, Shopify AI, eBay product description, goal tracker, subscription tracker",
+  verification: {
+    google: "yc7304Se6LzypM3i8j0hK3-A6-CL8lGQxTjxE12WxfQ"
+  }
 };
 
 export default function RootLayout({
@@ -32,7 +35,7 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779508005725169"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
 
         {/* NAVBAR */}
