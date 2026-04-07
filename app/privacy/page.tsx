@@ -18,9 +18,7 @@ export default function PrivacyPolicy() {
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>1. Who We Are</h2>
         <p>
-          Controller: Your Company Name, Address, Country.
-          Contact: privacy@hubtoolsai.com. Data Protection Officer/Contact: privacy@hubtoolsai.com.
-          EU/UK Representative (if required): Representative Name and Contact.
+          Contact: admin@hubtoolsai.com. Data Protection Officer/Contact: admin@hubtoolsai.com.
         </p>
       </section>
 
@@ -143,7 +141,7 @@ export default function PrivacyPolicy() {
           <li>Lodge a complaint with your local supervisory authority.</li>
         </ul>
         <p style={{ marginTop: '8px' }}>
-          To exercise rights, contact privacy@hubtoolsai.com. We will verify your request and respond as required by law.
+          To exercise rights, contact admin@hubtoolsai.com. We will verify your request and respond as required by law.
         </p>
       </section>
 
@@ -164,9 +162,7 @@ export default function PrivacyPolicy() {
 
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>17. Contact</h2>
-        <p>Questions or requests: privacy@hubtoolsai.com</p>
-        <p>Mailing address: Your Company Name, Address, Country</p>
-        <p>EU/UK Representative (if applicable): Representative Name, Address, Contact</p>
+        <p>Questions or requests: admin@hubtoolsai.com</p>
       </section>
     </div>
   );

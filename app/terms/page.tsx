@@ -106,7 +106,7 @@ export default function TermsOfService() {
 
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>16. Contact</h2>
-        <p>Questions about these Terms: legal@hubtoolsai.com</p>
+        <p>Questions about these Terms: admin@hubtoolsai.com</p>
       </section>
     </div>
   );
