@@ -1,24 +1,25 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - HubToolsAI',
-  description: 'Privacy Policy for HubToolsAI',
+  title: 'Privacy Policy — HubToolsAI',
+  description: 'Privacy Policy for HubToolsAI (HubToolsAI). Learn how we collect, use, and protect your data.',
 };
 
 export default function PrivacyPolicy() {
   return (
     <div style={{ maxWidth: '860px', margin: '0 auto', padding: '40px 20px', minHeight: '60vh', lineHeight: 1.6 }}>
       <h1 style={{ fontSize: '36px', marginBottom: '8px' }}>Privacy Policy</h1>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Last Updated: September 2, 2025 — HubToolsAI.com</p>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Last Updated: April 7, 2026 — HubToolsAI</p>
       <p style={{ marginBottom: '24px' }}>
-        This Privacy Policy explains how HubToolsAI (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) collects, uses, and shares information when you use our website and services.
+        This Privacy Policy explains how HubToolsAI (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), operated at HubToolsAI, collects, uses, and shares information when you use our website and services.
         By using our site, you agree to the practices described here. If you do not agree, please do not use our services.
       </p>
 
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>1. Who We Are</h2>
         <p>
-          Contact: admin@hubtoolsai.com. Data Protection Officer/Contact: admin@hubtoolsai.com.
+          HubToolsAI is operated at <strong>HubToolsAI</strong>. Contact us at{' '}
+          <a href="mailto:admin@hubtoolsai.com" style={{ color: 'var(--accent-purple)' }}>admin@hubtoolsai.com</a>.
         </p>
       </section>
 
@@ -162,7 +163,7 @@ export default function PrivacyPolicy() {
 
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>17. Contact</h2>
-        <p>Questions or requests: admin@hubtoolsai.com</p>
+        <p>Questions or requests: <a href="mailto:admin@hubtoolsai.com" style={{ color: 'var(--accent-purple)' }}>admin@hubtoolsai.com</a></p>
       </section>
     </div>
   );

@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - HubToolsAI',
-  description: 'Terms of Service for HubToolsAI',
+  title: 'Terms of Service — HubToolsAI',
+  description: 'Terms of Service for HubToolsAI (HubToolsAI).',
 };
 
 export default function TermsOfService() {
   return (
     <div style={{ maxWidth: '860px', margin: '0 auto', padding: '40px 20px', minHeight: '60vh', lineHeight: 1.6 }}>
       <h1 style={{ fontSize: '36px', marginBottom: '8px' }}>Terms of Service</h1>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Last Updated: September 2, 2025 — HubToolsAI.com</p>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Last Updated: April 7, 2026 — HubToolsAI</p>
       <p style={{ marginBottom: '24px' }}>
-        These Terms of Service (&quot;Terms&quot;) govern your access to and use of HubToolsAI (&quot;Service&quot;). By using the Service, you agree to these Terms.
+        These Terms of Service (&quot;Terms&quot;) govern your access to and use of HubToolsAI, operated at HubToolsAI (&quot;Service&quot;). By using the Service, you agree to these Terms.
       </p>
 
       <section style={{ marginBottom: '24px' }}>
@@ -87,9 +87,9 @@ export default function TermsOfService() {
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>13. Governing Law; Dispute Resolution</h2>
         <p>
-          Governing Law: The laws of [Your Jurisdiction, e.g., India/USA/UK] without regard to conflict of law principles.
-          Venue: Exclusive jurisdiction and venue for any dispute shall be the courts located in [City, State/Country].
-          Alternatively, you may agree to binding arbitration administered by [Arbitration Provider, e.g., JAMS/AAA] under its rules.
+          These Terms are governed by the laws of the State of Delaware, United States, without regard to conflict of law principles.
+          Exclusive jurisdiction and venue for any dispute arising under these Terms shall be the state and federal courts located in Wilmington, Delaware.
+          As an alternative to litigation, disputes may be resolved by binding arbitration administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules.
           Class-Action Waiver: You agree to resolve disputes individually and waive participation in class, collective, or representative actions, to the extent permitted by law.
         </p>
       </section>
@@ -106,7 +106,7 @@ export default function TermsOfService() {
 
       <section style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '22px', marginBottom: '8px' }}>16. Contact</h2>
-        <p>Questions about these Terms: admin@hubtoolsai.com</p>
+        <p>Questions about these Terms: <a href="mailto:admin@hubtoolsai.com" style={{ color: 'var(--accent-purple)' }}>admin@hubtoolsai.com</a></p>
       </section>
     </div>
   );

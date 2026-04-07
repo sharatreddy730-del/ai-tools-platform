@@ -3,8 +3,8 @@ import AdUnit from "@/components/AdUnit"
 
 const FAQ = [
   {
-    q: "What is the AI Tools Platform?",
-    a: "AI Tools Platform is a suite of AI-powered products designed for ecommerce sellers, content creators, and professionals. We offer WriteSwift (AI content generator), PrimePro (goal & productivity tracker), SubSave (subscription manager), and 50+ free SEO tools.",
+    q: "What is HubToolsAI?",
+    a: "HubToolsAI is a suite of AI-powered products designed for ecommerce sellers, content creators, and professionals. We offer WriteSwift (AI content generator), PrimePro (goal & productivity tracker), SubSave (subscription manager), and 50+ free SEO tools.",
   },
   {
     q: "Who are these tools for?",

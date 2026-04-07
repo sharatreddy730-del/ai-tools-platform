@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         }
     }
     return {
-        title: data ? `${data.name} — Free AI Tool | AI Tools Platform` : "Free AI Tool",
+        title: data ? `${data.name} — Free AI Tool | HubToolsAI` : "Free AI Tool",
         description: data?.description ?? "Discover powerful free AI tools for ecommerce sellers and creators.",
     }
 }
@@ -97,11 +97,22 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
                 {/* HERO */}
                 <section className="section" style={{ maxWidth: 900, margin: "0 auto", paddingTop: 60 }}>
-                    <h1 style={{ fontSize: 36, fontWeight: 800 }}>
-                        {toolA} vs {toolB}
+                    <nav style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 28 }}>
+                        <Link href="/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>Home</Link>
+                        <span style={{ margin: "0 8px" }}>/</span>
+                        <Link href="/tools" style={{ color: "var(--text-muted)", textDecoration: "none" }}>Tools</Link>
+                        <span style={{ margin: "0 8px" }}>/</span>
+                        <span style={{ color: "var(--text-secondary)" }}>{toolA} vs {toolB}</span>
+                    </nav>
+
+                    <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, marginBottom: 20 }}>
+                        {toolA} vs {toolB}: Which AI Tool Is Better in 2026?
                     </h1>
-                    <p style={{ color: "var(--text-secondary)" }}>
-                        Compare {toolA} and {toolB} to find the best AI tool for your needs.
+                    <p style={{ color: "var(--text-secondary)", fontSize: 18, lineHeight: 1.8 }}>
+                        Choosing between <strong>{toolA}</strong> and <strong>{toolB}</strong> depends
+                        heavily on your specific workflow. In this comprehensive comparison, we evaluate both
+                        platforms on output quality, ease of use, pricing, and best use cases to help you
+                        decide which AI tool belongs in your tech stack.
                     </p>
                 </section>
 
@@ -109,56 +120,83 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
                 {/* COMPARISON TABLE */}
                 <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
-                    <h2>Feature Comparison</h2>
+                    <h2 style={{ fontSize: 26, fontWeight: 800, marginBottom: 24, letterSpacing: -0.5 }}>Head-to-Head Comparison</h2>
 
-                    <table style={{ width: "100%", marginTop: 20 }}>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>{toolA}</th>
-                                <th>{toolB}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Best For</td>
-                                <td>Ecommerce</td>
-                                <td>General Use</td>
-                            </tr>
-                            <tr>
-                                <td>Ease of Use</td>
-                                <td>⭐⭐⭐⭐⭐</td>
-                                <td>⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td>Pricing</td>
-                                <td>Affordable</td>
-                                <td>Premium</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div style={{ overflowX: "auto" }}>
+                        <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", marginBottom: 40 }}>
+                            <thead>
+                                <tr style={{ borderBottom: "2px solid var(--border-subtle)" }}>
+                                    <th style={{ padding: "16px 12px", color: "var(--text-primary)", fontWeight: 700 }}>Feature Category</th>
+                                    <th style={{ padding: "16px 12px", color: "var(--text-primary)", fontWeight: 700 }}>{toolA}</th>
+                                    <th style={{ padding: "16px 12px", color: "var(--text-primary)", fontWeight: 700 }}>{toolB}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                                    <td style={{ padding: "16px 12px", color: "var(--text-secondary)" }}>Best For</td>
+                                    <td style={{ padding: "16px 12px" }}>Ecommerce & Listings</td>
+                                    <td style={{ padding: "16px 12px" }}>General Purpose AI</td>
+                                </tr>
+                                <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                                    <td style={{ padding: "16px 12px", color: "var(--text-secondary)" }}>Ease of Use</td>
+                                    <td style={{ padding: "16px 12px" }}>⭐⭐⭐⭐⭐</td>
+                                    <td style={{ padding: "16px 12px" }}>⭐⭐⭐⭐</td>
+                                </tr>
+                                <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                                    <td style={{ padding: "16px 12px", color: "var(--text-secondary)" }}>SEO Features</td>
+                                    <td style={{ padding: "16px 12px" }}>Built-in (A9, Shopify)</td>
+                                    <td style={{ padding: "16px 12px" }}>Requires prompt engineering</td>
+                                </tr>
+                                <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                                    <td style={{ padding: "16px 12px", color: "var(--text-secondary)" }}>Pricing</td>
+                                    <td style={{ padding: "16px 12px" }}>Accessible / High Value</td>
+                                    <td style={{ padding: "16px 12px" }}>Standard Enterprise</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
                 <AdUnit />
 
                 {/* PROS & CONS */}
-                <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
-                    <h2>Pros & Cons</h2>
+                <section className="section" style={{ maxWidth: 900, margin: "0 auto", background: "var(--bg-secondary)", borderRadius: 16, padding: "40px" }}>
+                    <h2 style={{ fontSize: 26, fontWeight: 800, marginBottom: 32, letterSpacing: -0.5 }}>Pros & Cons</h2>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32 }}>
                         <div>
-                            <h3>{toolA} Pros</h3>
-                            <ul>
-                                <li>Fast and efficient</li>
-                                <li>SEO optimized</li>
+                            <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "var(--text-primary)" }}>{toolA}</h3>
+                            <ul style={{ listStyle: "none", padding: 0 }}>
+                                <li style={{ marginBottom: 12, paddingLeft: 24, position: "relative" }}>
+                                    <span style={{ position: "absolute", left: 0, color: "#10b981" }}>✓</span>
+                                    Produces platform-specific formats automatically
+                                </li>
+                                <li style={{ marginBottom: 12, paddingLeft: 24, position: "relative" }}>
+                                    <span style={{ position: "absolute", left: 0, color: "#10b981" }}>✓</span>
+                                    Highly optimized for search engine visibility
+                                </li>
+                                <li style={{ marginBottom: 12, paddingLeft: 24, position: "relative" }}>
+                                    <span style={{ position: "absolute", left: 0, color: "#ef4444" }}>✗</span>
+                                    Narrower focus compared to general AI
+                                </li>
                             </ul>
                         </div>
 
                         <div>
-                            <h3>{toolB} Pros</h3>
-                            <ul>
-                                <li>Flexible usage</li>
-                                <li>Wide feature set</li>
+                            <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "var(--text-primary)" }}>{toolB}</h3>
+                            <ul style={{ listStyle: "none", padding: 0 }}>
+                                <li style={{ marginBottom: 12, paddingLeft: 24, position: "relative" }}>
+                                    <span style={{ position: "absolute", left: 0, color: "#10b981" }}>✓</span>
+                                    Extremely flexible for varied tasks
+                                </li>
+                                <li style={{ marginBottom: 12, paddingLeft: 24, position: "relative" }}>
+                                    <span style={{ position: "absolute", left: 0, color: "#10b981" }}>✓</span>
+                                    Massive library of integrations
+                                </li>
+                                <li style={{ marginBottom: 12, paddingLeft: 24, position: "relative" }}>
+                                    <span style={{ position: "absolute", left: 0, color: "#ef4444" }}>✗</span>
+                                    Requires complex prompting for ecommerce
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -167,22 +205,38 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 <AdUnit />
 
                 {/* VERDICT */}
-                <section className="section" style={{ maxWidth: 900, margin: "0 auto" }}>
-                    <h2>Final Verdict</h2>
+                <section className="section" style={{ maxWidth: 900, margin: "0 auto", paddingBottom: 80 }}>
+                    <h2 style={{ fontSize: 26, fontWeight: 800, marginBottom: 16, letterSpacing: -0.5 }}>Final Verdict</h2>
 
-                    <p>
-                        Choose <strong>{toolA}</strong> if you want focused results.
-                        Choose <strong>{toolB}</strong> if you need flexibility.
+                    <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.8, marginBottom: 16 }}>
+                        When comparing {toolA} vs {toolB}, the winner depends entirely on your use case.
+                        If you are an ecommerce seller, marketer, or agency needing ready-to-publish product
+                        descriptions that actually rank, <strong>{toolA}</strong> is the clear choice. It removes
+                        the friction of prompt engineering and delivers structured, SEO-friendly output.
+                    </p>
+                    <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.8, marginBottom: 32 }}>
+                        However, if you are looking for a general-purpose AI assistant to draft emails, write
+                        code, or summarize documents, <strong>{toolB}</strong> offers the broader versatility
+                        required for those tasks.
                     </p>
 
                     {/* CTA */}
-                    <a
-                        href="https://www.writeswift.ai"
-                        className="btn-primary"
-                        style={{ marginTop: 20, display: "inline-block" }}
-                    >
-                        Try {toolA} →
-                    </a>
+                    <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                        <a
+                            href="https://www.writeswift.ai"
+                            className="btn-primary"
+                            style={{ fontSize: 16, padding: "14px 32px" }}
+                        >
+                            Try {toolA} Free →
+                        </a>
+                        <Link
+                            href="/tools"
+                            className="btn-secondary"
+                            style={{ fontSize: 16, padding: "14px 32px" }}
+                        >
+                            Browse More Tools
+                        </Link>
+                    </div>
                 </section>
 
             </main>

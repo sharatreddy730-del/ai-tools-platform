@@ -33,7 +33,9 @@ export default function AdUnit() {
             className="adsbygoogle"
             style={{ display: "block", minHeight: 0, margin: "16px 0" }}
             data-ad-client="ca-pub-2779508005725169"
-            data-ad-slot="1234567890"
+            // IMPORTANT: Replace this placeholder 1234567890 with your actual ad slot ID
+            // from your Google AdSense dashboard before verifying full functionality.
+            data-ad-slot="2779508005725169"
             data-ad-format="auto"
             data-full-width-responsive="true"
         />

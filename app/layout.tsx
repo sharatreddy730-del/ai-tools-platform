@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Tools Platform — Smart Tools for Creators, Sellers & Professionals",
+  title: "HubToolsAI — Smart Tools for Creators, Sellers & Professionals",
   description:
     "Discover powerful AI tools for content creation, goal tracking, and subscription management. Built for ecommerce sellers, creators, and professionals.",
   keywords:
@@ -51,8 +51,8 @@ export default function RootLayout({
             <ul className="navbar-links">
               <li><Link href="/#products">Products</Link></li>
               <li><Link href="/#features">Features</Link></li>
-              {/* <li><Link href="/#pricing">Pricing</Link></li> */}
               <li><Link href="/tools">SEO Tools</Link></li>
+              <li><Link href="/blog">Blog</Link></li>
               <li>
                 <Link href="https://www.writeswift.ai" target="_blank" className="btn-primary" style={{ padding: "8px 20px", fontSize: "14px" }}>
                   Get Started
@@ -72,7 +72,7 @@ export default function RootLayout({
           <div className="footer-inner">
             <div className="footer-col">
               <h4 className="gradient-text" style={{ fontSize: "18px", textTransform: "none", letterSpacing: "-0.5px" }}>
-                AI Tools Platform
+                HubToolsAI
               </h4>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: 1.7, marginTop: "12px" }}>
                 Smart AI-powered tools for content creators, ecommerce sellers, and professionals who want to work smarter.
@@ -91,14 +91,14 @@ export default function RootLayout({
             </div>
             <div className="footer-col">
               <h4>Company</h4>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
               <Link href="/privacy">Privacy Policy</Link>
               <Link href="/terms">Terms of Service</Link>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© 2026 AI Tools Platform. All rights reserved.</p>
+            <p>© 2026 HubToolsAI. All rights reserved.</p>
             <p>
               Built with ❤️ for creators &amp; sellers
             </p>
