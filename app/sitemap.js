@@ -7,7 +7,7 @@ export default async function sitemap() {
         .select("slug")
 
     const dynamicToolPages = (data || []).map(page => ({
-        url: `${BASE_URL}/tools/${page.slug}`,
+        url: `${BASE_URL}/tools/${encodeURIComponent(page.slug)}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.8,
