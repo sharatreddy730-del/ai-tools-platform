@@ -1,3 +1,5 @@
+import Script from "next/script"
+
 interface ArticleSchemaProps {
   title: string
   excerpt: string
@@ -29,9 +31,11 @@ export default function ArticleSchema({ title, excerpt, date, category }: Articl
   }
 
   return (
-    <script
+    <Script
+      id={`article-schema-${title}`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      strategy="afterInteractive"
     />
   )
 }
