@@ -79,7 +79,7 @@ ${tool.content}`;
                     success = true;
                 }
             } catch (e) {
-                console.error(`Variation error for ${tool.slug} on attempt ${attempts}:`, e.message);
+                console.error(`Variation error for ${tool.slug} on attempt ${attempts}:`, (e as Error).message);
                 await new Promise(r => setTimeout(r, 2000));
             }
         }

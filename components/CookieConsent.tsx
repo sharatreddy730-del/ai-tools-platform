@@ -3,6 +3,12 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
+declare global {
+  interface Window {
+    dataLayer?: any[]
+  }
+}
+
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false)
   const [preferences, setPreferences] = useState({

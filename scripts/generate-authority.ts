@@ -115,7 +115,7 @@ For the "FAQ" section:
                     success = true;
                 }
             } catch (e) {
-                console.error(`Generation error for ${tool.slug} on attempt ${attempts}:`, e.message);
+                console.error(`Generation error for ${tool.slug} on attempt ${attempts}:`, (e as Error).message);
                 await new Promise(r => setTimeout(r, 2000));
             }
         }

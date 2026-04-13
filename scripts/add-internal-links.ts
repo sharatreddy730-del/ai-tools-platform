@@ -93,7 +93,7 @@ Requirements:
                     success = true;
                 }
             } catch (e) {
-                console.error(`Error for ${tool.slug} on attempt ${attempts}:`, e.message);
+                console.error(`Error for ${tool.slug} on attempt ${attempts}:`, (e as Error).message);
                 await new Promise(r => setTimeout(r, 2000));
             }
         }
