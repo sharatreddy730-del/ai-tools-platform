@@ -76,7 +76,7 @@ export default function Home() {
           </p>
 
           <div className="animate-fade-in-up-delay-3" style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="https://www.writeswift.ai" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 17, padding: "16px 36px" }}>
+            <a href="https://www.writeswift.ai" target="_blank" rel="sponsored noopener noreferrer" className="btn-primary" style={{ fontSize: 17, padding: "16px 36px" }}>
               Start Free Today →
             </a>
             <Link href="/tools" className="btn-secondary" style={{ fontSize: 17, padding: "16px 36px" }}>
@@ -125,7 +125,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
 
             {/* WriteSwift */}
-            <a href="https://www.writeswift.ai" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: 36, textDecoration: "none", color: "inherit", position: "relative", overflow: "hidden" }}>
+            <a href="https://www.writeswift.ai" target="_blank" rel="sponsored noopener noreferrer" className="glass-card" style={{ padding: 36, textDecoration: "none", color: "inherit", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", top: 16, right: 16, fontSize: 11, background: "rgba(139, 92, 246, 0.15)", color: "var(--accent-purple)", padding: "4px 12px", borderRadius: 100, fontWeight: 700 }}>🔥 Most Popular</div>
               <div style={{ fontSize: 44, marginBottom: 16 }}>✍️</div>
               <h3 style={{ fontSize: 22, fontWeight: 700 }}>WriteSwift.ai</h3>
@@ -144,7 +144,7 @@ export default function Home() {
             </a>
 
             {/* PrimePro */}
-            <a href="https://www.primepro.co" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: 36, textDecoration: "none", color: "inherit" }}>
+            <a href="https://www.primepro.co" target="_blank" rel="sponsored noopener noreferrer" className="glass-card" style={{ padding: 36, textDecoration: "none", color: "inherit" }}>
               <div style={{ fontSize: 44, marginBottom: 16 }}>📈</div>
               <h3 style={{ fontSize: 22, fontWeight: 700 }}>PrimePro.co</h3>
               <p style={{ fontSize: 13, fontWeight: 600, color: "var(--accent-blue)", margin: "8px 0 14px" }}>AI-Powered Goal & Growth Tracker</p>
@@ -162,7 +162,7 @@ export default function Home() {
             </a>
 
             {/* SubSave */}
-            <a href="https://www.subsave.ai" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: 36, textDecoration: "none", color: "inherit" }}>
+            <a href="https://www.subsave.ai" target="_blank" rel="sponsored noopener noreferrer" className="glass-card" style={{ padding: 36, textDecoration: "none", color: "inherit" }}>
               <div style={{ fontSize: 44, marginBottom: 16 }}>💰</div>
               <h3 style={{ fontSize: 22, fontWeight: 700 }}>SubSave.ai</h3>
               <p style={{ fontSize: 13, fontWeight: 600, color: "var(--accent-cyan)", margin: "8px 0 14px" }}>AI Subscription Cost Cutter</p>

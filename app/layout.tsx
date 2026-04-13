@@ -4,6 +4,9 @@ import Link from "next/link";
 import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import CookieConsent from "@/components/CookieConsent"
+import GoogleAnalyticsScript from "@/components/GoogleAnalyticsScript"
+import StructuredData from "@/components/StructuredData"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,6 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Structured Data for SEO */}
+        <StructuredData />
+      </head>
       <body className={`${inter.variable} antialiased`} style={{ fontFamily: "var(--font-inter, 'Inter', sans-serif)" }}>
         {/* Google AdSense — beforeInteractive ensures it appears in server-rendered HTML for crawler visibility */}
         <Script
@@ -80,9 +87,9 @@ export default function RootLayout({
             </div>
             <div className="footer-col">
               <h4>Products</h4>
-              <a href="https://www.writeswift.ai" target="_blank" rel="noopener noreferrer">WriteSwift.ai</a>
-              <a href="https://www.primepro.co" target="_blank" rel="noopener noreferrer">PrimePro.co</a>
-              <a href="https://www.subsave.ai" target="_blank" rel="noopener noreferrer">SubSave.ai</a>
+              <a href="https://www.writeswift.ai" target="_blank" rel="sponsored noopener noreferrer">WriteSwift.ai</a>
+              <a href="https://www.primepro.co" target="_blank" rel="sponsored noopener noreferrer">PrimePro.co</a>
+              <a href="https://www.subsave.ai" target="_blank" rel="sponsored noopener noreferrer">SubSave.ai</a>
             </div>
             <div className="footer-col">
               <h4>Resources</h4>
@@ -106,6 +113,12 @@ export default function RootLayout({
         </footer>
         {/* Vercel Analytics */}
         <Analytics />
+
+        {/* Google Analytics 4 */}
+        <GoogleAnalyticsScript />
+
+        {/* Cookie Consent Banner */}
+        <CookieConsent />
       </body>
     </html>
   );

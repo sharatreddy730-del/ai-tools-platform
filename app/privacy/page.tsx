@@ -55,12 +55,49 @@ export default function PrivacyPage() {
             The security of your data is important to us. We strive to use commercially acceptable means to protect your information, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure.
           </p>
 
-          <h2>7. Contact Us</h2>
+          <h2>7. User Rights (GDPR & CCPA)</h2>
           <p>
-            If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
+            If you are a resident of the European Union or California, you have certain rights regarding your personal data:
+          </p>
+          <ul>
+            <li><strong>Right to Access:</strong> You can request a copy of the personal data we hold about you.</li>
+            <li><strong>Right to Rectification:</strong> You can request that we correct inaccurate or incomplete data.</li>
+            <li><strong>Right to Erasure:</strong> You can request deletion of your personal data (subject to legal obligations).</li>
+            <li><strong>Right to Restrict Processing:</strong> You can request that we limit how we use your data.</li>
+            <li><strong>Right to Data Portability:</strong> You can request your data in a portable, machine-readable format.</li>
+            <li><strong>Right to Object:</strong> You can object to personalized advertising and promotional communications.</li>
+            <li><strong>Right to Opt-Out of Personalization:</strong> You can disable interest-based advertising through the cookie consent banner or your browser settings.</li>
+          </ul>
+          <p>
+            To exercise any of these rights, please contact us with specific details of your request.
+          </p>
+
+          <h2>8. Do Not Track (DNT)</h2>
+          <p>
+            Some browsers include a "Do Not Track" (DNT) feature. Our site currently does not respond to DNT signals, but we respect user preferences set through our cookie consent banner. If you have DNT enabled in your browser, you can still manage your preferences via our cookie banner.
+          </p>
+
+          <h2>9. Google AdSense Cookie Usage</h2>
+          <p>
+            Google AdSense serves ads tailored to your interests based on cookies and tracking technologies. When you visit our site:
+          </p>
+          <ul>
+            <li>Google plants cookies on your browser to recognize you and collect information about your interests.</li>
+            <li>This data may be shared with Google and its partners for ad serving and market research.</li>
+            <li>You can view and manage your Google ad preferences at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">www.google.com/settings/ads</a>.</li>
+            <li>You can also opt out of personalized advertising through <a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</li>
+          </ul>
+          <p>
+            We encourage you to review <a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener noreferrer">"How Google uses data when you use our partners' sites or apps"</a> for full details.
+          </p>
+
+          <h2>10. Contact Us</h2>
+          <p>
+            If you have any questions, concerns, or requests regarding this Privacy Policy, our data practices, or to exercise your rights under GDPR or CCPA, please contact us at:
           </p>
           <blockquote>
-            <strong>Email:</strong> <a href="mailto:admin@hubtoolsai.com">admin@hubtoolsai.com</a>
+            <strong>Email:</strong> <a href="mailto:admin@hubtoolsai.com">admin@hubtoolsai.com</a><br />
+            <strong>Response Time:</strong> We aim to respond to all inquiries within 30 days.
           </blockquote>
 
         </div>
