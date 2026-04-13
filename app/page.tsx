@@ -299,21 +299,50 @@ export default function Home() {
 
       {/* ===== SEO CONTENT BLOCK ===== */}
       <section>
-        <div className="section" style={{ maxWidth: 860, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 20 }}>
-            The Best AI Tools for Ecommerce Sellers in 2026
-          </h2>
-          <p style={{ color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: 16 }}>
-            AI tools have fundamentally changed what&apos;s possible for independent sellers. Tasks that once took hours — writing product descriptions, A/B testing titles, running SEO audits — now take minutes. The result is a level playing field where small sellers can compete with enterprise brands.
+        <div className="section editorial-content" style={{ maxWidth: 860, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
+          <h2>Why You Need an AI Tools Platform in 2026</h2>
+          <p>
+            Artificial Intelligence has rapidly evolved from a complex, enterprise-only novelty into a fundamental business utility that solopreneurs and teams rely on daily. At its core, an AI tools platform is a centralized, intelligent ecosystem designed to automate repetitive, high-friction tasks so you can focus entirely on high-leverage growth. Rather than jumping between fragmented applications, maintaining endless browser tabs, and paying for scattered subscriptions, consolidating your workflows into a single, unified platform ensures that you deploy AI where it actually generates a measurable return on investment. 
           </p>
-          <p style={{ color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: 16 }}>
-            <strong style={{ color: "var(--text-primary)" }}>WriteSwift</strong> is the leading AI content generator purpose-built for marketplace sellers. Unlike generic AI writers, it understands platform-specific rules: Amazon A9 ranking signals, Shopify SEO best practices, eBay listing formats, and Etsy buyer search behavior. The output isn&apos;t just readable — it&apos;s optimized to rank and convert.
+          
+          <h3>Who Does HubToolsAI Help?</h3>
+          <p>We built this platform for the ambitious fast-movers who recognize that speed to market and conversion optimization are everything in modern digital business. Specifically, our AI tools are engineered for:</p>
+          <ul>
+            <li><strong>Ecommerce Sellers:</strong> Whether you manage a massive catalog on Amazon, operate an independent boutique on Shopify, or flip items on eBay, our AI listing generators understand marketplace algorithms deeply. They craft titles, compelling bullet points, and A+ content that dominate search rankings while rigidly adhering to platform-specific character constraints and keyword densities.</li>
+            <li><strong>Content Creators:</strong> Writers, social media marketers, and video producers use our specialized generators to completely break through creative blocks. Transform a single seed idea into an entire content calendar, optimize your YouTube titles for maximum click-through rates, and generate engaging, human-sounding Instagram captions in seconds.</li>
+            <li><strong>Digital Professionals:</strong> For agency owners, freelance consultants, and proactive employees—our internal tracking and auditing layers (like PrimePro and SubSave) bring enterprise-level habit formation and financial auditing down to the individual level, ensuring you hit KPIs and stay under budget.</li>
+          </ul>
+
+          <h3>The Core Benefits of Using AI Workflows</h3>
+          <p>Integrating our purpose-built tools doesn&apos;t just make you look technologically advanced; it fundamentally reorganizes your personal capacity and your business&apos;s financial efficiency.</p>
+          
+          <h4>1. Reclaiming Hundreds of Hours</h4>
+          <p>
+            Time is the single asset you cannot replenish. Activities that historically required hiring a dedicated virtual assistant, engaging an expensive freelancer, or spending hours of manual labor—like competitive keyword research, writing fifty variations of a product description, or painstakingly mapping out a quarterly productivity roadmap—are now executed instantly. By reclaiming this time, you shift from working in the weeds of your business to working strategically on the growth of your business.
           </p>
-          <p style={{ color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: 16 }}>
-            <strong style={{ color: "var(--text-primary)" }}>PrimePro</strong> addresses the productivity gap. Most goal-tracking apps are passive — they log what you did but don&apos;t help you do better. PrimePro&apos;s AI analyzes your behavior patterns and gives specific, personalized coaching: when to schedule deep work, which habits are compounding, and where your routines are breaking down.
+
+          <h4>2. Incrementally Increasing Conversions</h4>
+          <p>
+            Good copy tells; optimized copy sells. Our AI isn&apos;t just trained to generate grammatically correct text; it is deeply trained on top-converting sales principles and search engine ranking factors. By rapidly testing generated variations of your landing pages, ad copy, and product highlights, you can systematically improve your conversion rates and dramatically lower your customer acquisition costs. Every extra percentage point in your conversion rate funnels directly to your bottom line.
           </p>
-          <p style={{ color: "var(--text-secondary)", lineHeight: 1.85 }}>
-            <strong style={{ color: "var(--text-primary)" }}>SubSave</strong> solves the subscription creep problem that&apos;s costing most businesses hundreds per year. With automatic detection, renewal alerts, and one-click cancellation guides, it turns passive spending into active savings with zero ongoing effort.
+
+          <h4>3. Eliminating Wasted Spending</h4>
+          <p>
+            Countless digital businesses bleed cash through forgotten SaaS subscriptions, overlapping plans, and redundant point-solution tools. By utilizing our integrated auditing products and completely replacing multiple expensive micro-tools with our centralized library of free SEO and AI generators, our users consistently reduce their operational overhead. Cutting software waste instantly improves your profit margins without requiring a single new sale.
+          </p>
+
+          <h3>Explore Our Top Authority Tools</h3>
+          <p>We continually expand our suite of over 50 free, highly-specialized AI generators. You can start optimizing your digital footprint immediately by exploring some of our most impactful tools directly below:</p>
+          <ul>
+            <li><Link href="/tools/amazon-title-generator"><strong>Amazon Title Generator</strong></Link> — Maximize your A9 search discoverability and click-to-cart ratios.</li>
+            <li><Link href="/tools/shopify-product-description"><strong>Shopify Product Description Generator</strong></Link> — Write compelling, SEO-friendly storefront copy that converts casual browsers into buyers.</li>
+            <li><Link href="/tools/ebay-listing-generator"><strong>eBay Listing Optimizer</strong></Link> — Structure marketplace listings that build immediate buyer trust.</li>
+            <li><Link href="/tools/ai-roadmap-generator"><strong>Strategic AI Roadmap Builder</strong></Link> — Outline your complex business and project milestones effortlessly.</li>
+            <li><Link href="/tools/etsy-tags-generator"><strong>Etsy Tags Generator</strong></Link> — Find the exact long-tail keywords that handmade buyers are actively searching for.</li>
+          </ul>
+          
+          <p>
+            Stop paying for overlapping subscriptions and relying on outdated, manual workflows. Start utilizing HubToolsAI today to automate the mundane tasks, organically convert more web traffic, and aggressively accelerate your multi-channel growth trajectory.
           </p>
 
           <div style={{ marginTop: 32, display: "flex", gap: 12, flexWrap: "wrap" }}>

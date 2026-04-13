@@ -36,9 +36,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             description: `Compare ${a} vs ${b}. Features, pricing, pros & cons.`,
         }
     }
+    const isThinContent = !data?.content || data.content.length < 500;
+
     return {
         title: data ? `${data.name} — Free AI Tool | HubToolsAI` : "Free AI Tool",
         description: data?.description ?? "Discover powerful free AI tools for ecommerce sellers and creators.",
+        robots: isThinContent ? { index: false, follow: false } : { index: true, follow: true },
     }
 }
 
@@ -336,20 +339,30 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             <section>
                 <div className="section" style={{ paddingTop: 60, paddingBottom: 60, maxWidth: 850 }}>
                     <AdUnit />
-                    <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 16 }}>
-                        How to Use {data.name}
-                    </h2>
+                    
+                    {data.content ? (
+                        <div 
+                            className="editorial-content" 
+                            dangerouslySetInnerHTML={{ __html: data.content }} 
+                        />
+                    ) : (
+                        <>
+                            <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 16 }}>
+                                How to Use {data.name}
+                            </h2>
 
-                    <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
-                        {data.name} helps ecommerce sellers generate optimized content quickly.
-                        Simply enter your product name or keyword, and the AI will generate
-                        high-quality results tailored for platforms like {data.platform}.
-                    </p>
+                            <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+                                {data.name} helps ecommerce sellers generate optimized content quickly.
+                                Simply enter your product name or keyword, and the AI will generate
+                                high-quality results tailored for platforms like {data.platform}.
+                            </p>
 
-                    <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
-                        This tool is designed to improve search visibility, increase click-through
-                        rates, and help your listings stand out in competitive marketplaces.
-                    </p>
+                            <p style={{ color: "var(--text-secondary)", lineHeight: 1.8 }}>
+                                This tool is designed to improve search visibility, increase click-through
+                                rates, and help your listings stand out in competitive marketplaces.
+                            </p>
+                        </>
+                    )}
 
                 </div>
             </section>
@@ -382,6 +395,38 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 </section>
             )}
             <AdUnit />
+            {/* RELATED GUIDES */}
+            <section style={{ background: "var(--bg-primary)" }}>
+                <div className="section" style={{ paddingTop: 60, paddingBottom: 60, borderTop: "1px solid var(--border-subtle)" }}>
+                    <div className="section-header" style={{ marginBottom: 40, textAlign: "center" }}>
+                        <h2 style={{ fontSize: 28 }}>Free <span className="gradient-text">Guides & Resources</span></h2>
+                        <p style={{ color: "var(--text-secondary)" }}>Learn how to maximize your results with expert strategies.</p>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20, maxWidth: 900, margin: "0 auto" }}>
+                        <Link href="/blog/how-ai-is-changing-ecommerce-listings" className="glass-card" style={{ padding: 24, textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}>
+                            <span style={{ fontSize: 12, color: "var(--accent-purple)", fontWeight: 700, marginBottom: 8 }}>AI & Ecommerce</span>
+                            <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 12 }}>How AI Is Transforming Product Listings in 2026</h3>
+                            <span style={{ fontSize: 14, color: "var(--text-secondary)", marginTop: "auto", fontWeight: 600 }}>Read guide →</span>
+                        </Link>
+                        <Link href="/blog/amazon-seo-tips-2026" className="glass-card" style={{ padding: 24, textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}>
+                            <span style={{ fontSize: 12, color: "var(--accent-blue)", fontWeight: 700, marginBottom: 8 }}>Marketplace SEO</span>
+                            <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 12 }}>Amazon SEO in 2026: What Actually Works</h3>
+                            <span style={{ fontSize: 14, color: "var(--text-secondary)", marginTop: "auto", fontWeight: 600 }}>Read guide →</span>
+                        </Link>
+                        <Link href="/blog/shopify-product-description-guide" className="glass-card" style={{ padding: 24, textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}>
+                            <span style={{ fontSize: 12, color: "var(--accent-cyan)", fontWeight: 700, marginBottom: 8 }}>Store Optimization</span>
+                            <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 12 }}>Writing Shopify Descriptions That Convert</h3>
+                            <span style={{ fontSize: 14, color: "var(--text-secondary)", marginTop: "auto", fontWeight: 600 }}>Read guide →</span>
+                        </Link>
+                    </div>
+                    <div style={{ textAlign: "center", marginTop: 32 }}>
+                        <Link href="/blog" style={{ fontSize: 15, fontWeight: 600, color: "var(--accent-purple)", textDecoration: "none" }}>
+                            View all guides →
+                        </Link>
+                    </div>
+                </div>
+            </section>
+            
             {/* CTA BANNER */}
             <section style={{ position: "relative", overflow: "hidden" }}>
                 <div className="orb orb-purple" style={{ width: 300, height: 300, top: -100, left: -50 }} />

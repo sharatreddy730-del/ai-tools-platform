@@ -24,30 +24,33 @@ async function generateContent(page: {
     keywords?: string | null
 }) {
     const prompt = `
-Write a detailed 800-1000 word SEO-optimized article in HTML for this page:
+You are an expert SaaS and AI tool reviewer writing for an authoritative platform.
+Write a comprehensive, engaging, and highly informative deep-dive review (800-1200 words) for the AI tool: "${page.name}".
+Target keywords to naturally integrate: ${page.keywords ?? "AI tool, productivity, automation"}
 
-Title: ${page.name}
-Target keywords: ${page.keywords ?? ""}
+REQUIREMENTS AND TONE:
+- Write in clean, semantic HTML only. Do NOT wrap the output in markdown code blocks (\`\`\`html) - just output the raw HTML directly.
+- DO NOT use generic, repetitive headings like "Introduction", "How It Works", "Benefits", "Use Cases", or "FAQ". 
+- INSTEAD, use creative, context-specific headings tailored to what the tool actually does (e.g., "Revolutionizing Your Workflow with ${page.name}", "Where ${page.name} Falls Short", "Who Should Use This?").
+- Act as an authoritative reviewer. Include genuine-sounding insights, specific pros and cons, and target demographic analysis.
+- Use a mix of elements: <p>, <ul>, <ol>, <blockquote> for key takeaways, and a structured <table> for a "Pros and Cons" or "Feature Breakdown".
+- Make it scannable with bold text (<strong>) where appropriate.
+- Avoid robotic language like "In conclusion" or "In today's fast-paced digital world".
 
-Requirements:
-- Use clean HTML only
-- Include <h2>Introduction</h2>
-- Include <h2>How It Works</h2>
-- Include <h2>Benefits</h2>
-- Include <h2>Best Practices</h2>
-- Include <h2>Use Cases</h2>
-- Include <h2>FAQ</h2>
-- Use paragraphs, bullet lists, and short readable sections
-- Make it useful and specific
-- Avoid robotic language
+Ensure the formatting uses standard HTML tags that look great with basic CSS styling.
 `
 
     const response = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
+        model: "gpt-4o",
         messages: [{ role: "user", content: prompt }],
+        temperature: 0.7,
     })
 
-    return response.choices[0].message.content ?? ""
+    let content = response.choices[0].message.content ?? ""
+    // Remove markdown formatting if present
+    content = content.replace(/^```html\s*/i, '').replace(/\s*```$/i, '').trim()
+    
+    return content
 }
 
 async function generateWithRetry(
@@ -74,11 +77,20 @@ async function generateWithRetry(
 }
 
 async function run() {
-    const { data: pages, error } = await supabase
-        .from("seo_pages")
-        .select("id, name, slug, keywords")
-        .is("content", null)
-        .limit(5)
+    const args = process.argv.slice(2)
+    const overwrite = args.includes("--overwrite")
+    const limitArg = args.find(a => a.startsWith("--limit="))
+    const limit = limitArg ? parseInt(limitArg.split("=")[1]) : 30
+
+    let query = supabase.from("seo_pages").select("id, name, slug, keywords")
+
+    if (!overwrite) {
+        query = query.is("content", null)
+    } else {
+        query = query.order("id", { ascending: true })
+    }
+
+    const { data: pages, error } = await query.limit(limit)
 
     if (error) {
         console.error("Supabase select error:", error)
@@ -86,7 +98,7 @@ async function run() {
     }
 
     if (!pages || pages.length === 0) {
-        console.log("No rows found with empty content.")
+        console.log("No rows found matching criteria.")
         return
     }
 
