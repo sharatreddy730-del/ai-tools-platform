@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { getBlogPosts, type BlogPost } from "@/lib/supabase"
 
 export const metadata: Metadata = {
   title: "Blog — HubToolsAI | Tips, Guides & Insights for Sellers",
@@ -9,12 +10,13 @@ export const metadata: Metadata = {
     "AI tools blog, ecommerce tips, Amazon seller guide, AI content writing, Shopify SEO, product listing optimization",
 }
 
-const POSTS = [
+// Legacy POSTS array as fallback data
+const FALLBACK_POSTS: BlogPost[] = [
   {
     slug: "how-ai-is-changing-ecommerce-listings",
     category: "AI & Ecommerce",
     date: "March 28, 2026",
-    readTime: "6 min read",
+    read_time: "6 min read",
     title: "How AI Is Transforming Ecommerce Product Listings in 2026",
     excerpt:
       "AI-generated product listings are no longer a novelty — they're becoming a competitive necessity. We explore how sellers on Amazon, Shopify, and eBay are using AI to write better copy faster, and what it means for those who haven't adopted it yet.",
@@ -44,7 +46,7 @@ The sellers who will fall behind in 2026 are not those who lack products or inve
     slug: "amazon-seo-tips-2026",
     category: "Amazon SEO",
     date: "March 20, 2026",
-    readTime: "8 min read",
+    read_time: "8 min read",
     title: "Amazon SEO in 2026: What Actually Works (And What Doesn't)",
     excerpt:
       "Amazon's A9/A10 algorithm has evolved. Keyword stuffing is dead, and engagement signals matter more than ever. Here's what top sellers are doing differently right now.",
@@ -81,7 +83,7 @@ The sellers consistently outranking competitors in 2026 are those who treat list
     slug: "subscription-management-for-small-businesses",
     category: "Business Finance",
     date: "March 12, 2026",
-    readTime: "5 min read",
+    read_time: "5 min read",
     title: "The Hidden Subscription Problem Costing Small Businesses Hundreds Per Year",
     excerpt:
       "The average small business pays for 12–18 SaaS subscriptions. Research shows 30% of those go unused. Here's how to conduct a subscription audit and reclaim that budget for growth.",
@@ -117,7 +119,7 @@ The best time to cancel a subscription you don't need is before you're charged. 
     slug: "goal-tracking-habits-that-stick",
     category: "Productivity",
     date: "March 5, 2026",
-    readTime: "7 min read",
+    read_time: "7 min read",
     title: "Why Most Goal Trackers Fail You — And What Science Says Actually Works",
     excerpt:
       "Apps that just log your progress don't change your behavior. The science of habit formation points to a different approach: one that uses pattern recognition and timely feedback to build streaks that last.",
@@ -152,7 +154,7 @@ Building habits that last requires tools that learn your life, not just log it.
     slug: "shopify-product-description-guide",
     category: "Shopify",
     date: "February 26, 2026",
-    readTime: "6 min read",
+    read_time: "6 min read",
     title: "Writing Shopify Product Descriptions That Rank on Google and Convert Visitors",
     excerpt:
       "Shopify product pages are both a sales pitch and an SEO asset. Most store owners optimize for one and ignore the other. Here's how to write descriptions that do both — with AI.",
@@ -189,7 +191,15 @@ At scale across a catalog of 100+ products, this compounds into hundreds of hour
   },
 ]
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  // Fetch blog posts from Supabase
+  let posts = await getBlogPosts()
+  
+  // If no posts in database, use fallback data
+  if (posts.length === 0) {
+    posts = FALLBACK_POSTS
+  }
+
   return (
     <main>
       {/* HERO */}
@@ -243,25 +253,25 @@ export default function BlogPage() {
           >
             <div>
               <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 16, flexWrap: "wrap" }}>
-                <span
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 700,
-                    padding: "4px 12px",
-                    borderRadius: 100,
-                    background: "rgba(139, 92, 246, 0.15)",
-                    color: "var(--accent-purple)",
-                    border: "1px solid rgba(139, 92, 246, 0.3)",
-                  }}
-                >
-                  ⭐ Featured
-                </span>
-                <span style={{ fontSize: 12, color: "var(--text-muted)", fontWeight: 600 }}>
-                  {POSTS[0].category}
-                </span>
-                <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
-                  {POSTS[0].date} · {POSTS[0].readTime}
-                </span>
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 700,
+                padding: "4px 12px",
+                borderRadius: 100,
+                background: "rgba(139, 92, 246, 0.15)",
+                color: "var(--accent-purple)",
+                border: "1px solid rgba(139, 92, 246, 0.3)",
+              }}
+            >
+              ⭐ Featured
+            </span>
+            <span style={{ fontSize: 12, color: "var(--text-muted)", fontWeight: 600 }}>
+              {posts[0]?.category}
+            </span>
+            <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
+              {posts[0]?.date} · {posts[0]?.read_time}
+            </span>
               </div>
               <h2
                 style={{
@@ -272,13 +282,13 @@ export default function BlogPage() {
                   letterSpacing: -0.5,
                 }}
               >
-                {POSTS[0].title}
+                {posts[0]?.title}
               </h2>
               <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.75, marginBottom: 24 }}>
-                {POSTS[0].excerpt}
+                {posts[0]?.excerpt}
               </p>
               <Link
-                href={`/blog/${POSTS[0].slug}`}
+                href={`/blog/${posts[0]?.slug}`}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -302,7 +312,7 @@ export default function BlogPage() {
               gap: 24,
             }}
           >
-            {POSTS.slice(1).map((post) => (
+            {posts.slice(1).map((post) => (
               <article
                 key={post.slug}
                 className="glass-card"
@@ -323,7 +333,7 @@ export default function BlogPage() {
                     {post.category}
                   </span>
                   <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
-                    {post.date} · {post.readTime}
+                    {post.date} · {post.read_time}
                   </span>
                 </div>
                 <h2

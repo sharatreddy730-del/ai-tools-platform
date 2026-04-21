@@ -46,14 +46,14 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779508005725169"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
 
         {/* NAVBAR */}
         <nav className="navbar">
           <div className="navbar-inner">
             <Link href="/" className="navbar-logo gradient-text">
-              AI Tools
+              HubToolsAI
             </Link>
             <ul className="navbar-links">
               <li><Link href="/#products">Products</Link></li>
