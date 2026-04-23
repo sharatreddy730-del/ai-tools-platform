@@ -1,22 +1,26 @@
 import { createClient } from "@supabase/supabase-js"
 import { NextRequest, NextResponse } from "next/server"
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+export const dynamic = 'force-dynamic'
 
-if (!supabaseUrl || !supabaseServiceKey) {
-  throw new Error("Missing Supabase environment variables")
+function getClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !key) return null
+  return createClient(url, key)
 }
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey)
-
 export async function GET(req: NextRequest) {
+  const supabase = getClient()
+  if (!supabase) {
+    return NextResponse.json({ error: "Server configuration error" }, { status: 500 })
+  }
+
   const { searchParams } = new URL(req.url)
   const slug = searchParams.get("slug")
 
   try {
     if (slug) {
-      // Get a specific article
       const { data, error } = await supabase
         .from("articles")
         .select("*")
@@ -30,7 +34,6 @@ export async function GET(req: NextRequest) {
 
       return NextResponse.json(data)
     } else {
-      // Get all published articles
       const { data, error } = await supabase
         .from("articles")
         .select("*")
@@ -52,10 +55,14 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  const supabase = getClient()
+  if (!supabase) {
+    return NextResponse.json({ error: "Server configuration error" }, { status: 500 })
+  }
+
   try {
     const body = await req.json()
 
-    // Set default values
     const article = {
       published: false,
       ...body,
@@ -81,6 +88,11 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  const supabase = getClient()
+  if (!supabase) {
+    return NextResponse.json({ error: "Server configuration error" }, { status: 500 })
+  }
+
   try {
     const { searchParams } = new URL(req.url)
     const id = searchParams.get("id")
@@ -112,6 +124,11 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const supabase = getClient()
+  if (!supabase) {
+    return NextResponse.json({ error: "Server configuration error" }, { status: 500 })
+  }
+
   try {
     const { searchParams } = new URL(req.url)
     const id = searchParams.get("id")
